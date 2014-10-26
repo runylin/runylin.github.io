@@ -1,0 +1,9 @@
+---
+title: ts
+layout: post
+guid: urn:uuid:c4a039d1-6b62-4760-a412-7a7193e4ea99
+tags:
+  - ts
+---
+
+我不为输赢,只是认真!
