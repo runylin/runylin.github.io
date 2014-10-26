@@ -3,9 +3,9 @@ title: 这个博客怎么来的
 layout: post
 guid: urn:uuid:cb287cb8-a5f4-4771-a582-beb66be34d5b
 tags:
-  - github page
+  - blog
+  - study
   - jekyll
-  - duoshuo
 ---
 
 

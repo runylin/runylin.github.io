@@ -3,6 +3,8 @@ title: 简易使用MarkDown
 layout: post
 guid: urn:uuid:1c8e1397-8502-4276-a534-2efa86887a4b
 tags:
+  - blog
+  - study
   - markdown
 ---
 
