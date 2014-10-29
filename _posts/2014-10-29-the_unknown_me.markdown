@@ -6,7 +6,7 @@ tags:
   - book
 ---
 
-![](/media/files/2014/10/29/the_unkonwn_me.jpg)
+![](/media/files/2014/10/29/the_unknown_me.jpg)
 
 ---
 
