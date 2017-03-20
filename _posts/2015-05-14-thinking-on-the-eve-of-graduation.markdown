@@ -12,8 +12,8 @@ _浮现了 那滴眼泪 那片蓝天 那年毕业_
 
 &emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp; --  _五月天《干杯》_
  
- ![](/media/files/2015/05/15/gdut-724.jpg)
-  
+![](/media/files/2015/05/15/gdut-724.jpg)
+
 大学毕业，人们总是把它当做青春的尾巴。不可避免的，我们也走到这里了。
 
 再见了，学生时代;
