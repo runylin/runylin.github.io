@@ -4,7 +4,7 @@ title: Android源码的编译与烧写
 categories:
 - Android
 tags:
-- Android
+- 安卓系统 招式
 ---
 
 ### 一、介绍
