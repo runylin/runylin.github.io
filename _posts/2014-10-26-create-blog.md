@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Create Blog"
+title: 利用Jekyll+GitHub Page搭建博客
 categories: tools
 - 
 tags: tools
