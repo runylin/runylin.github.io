@@ -17,9 +17,7 @@ java -jar signapk.jar platform.x509.pem platform.pk8 old.apk new.apk
 
 
 ### 制作签名文件 *.jks
-利用keytool-importkeypair
-
-下载地址 https://github.com/getfatday/keytool-importkeypair
+利用[keytool-importkeypair](https://github.com/getfatday/keytool-importkeypair)
 
 使用，最终生成demo.jks
 ```
