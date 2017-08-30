@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Create Blog"
-categories:
+categories: tools
 - 
-tags: Tools
+tags: tools
 - 
 
 
