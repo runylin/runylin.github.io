@@ -1,17 +1,17 @@
 #markdown: rdiscount
 permalink: /:title/
-url: http://github.thinkingbar.com
+url: http://github.runylin.com
 #highlighter: pygments
 highlighter: rouge
 gems: [jekyll-paginate]
 paginate: 100
 paginate_path: "page:num"
-name: 飘过的小牛
-description: 飘过的小牛 | Stop talking, start doing.
-author: niushuai
-email: hnns1990@gmail.com
-duoshuo: niushuai
-weibo: 1891858481
-hub: niushuai
+name: 林X土实验室
+description: 林X土实验室 | Keep Moving.
+author: runylin
+email: runylin@gmail.com
+duoshuo: runylin
+weibo: 1720075687
+hub: runylin
 safe: false
-about: "弱菜一枚。"
+about: "菜鸡"
