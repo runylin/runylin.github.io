@@ -2,9 +2,8 @@
 layout: post
 title: 利用Jekyll+GitHub Page搭建博客
 categories: tools
-- 
 tags: tools
-- 
+---
 
 
 ###0. 前言
@@ -94,4 +93,3 @@ Z. [我的博客](https://github.com/runylin/runylin.github.io)
 最后的最后,搭建好博客记得要坚持写哦,这个才是关键哦 !
 
 
----
