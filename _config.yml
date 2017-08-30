@@ -1,0 +1,17 @@
+#markdown: rdiscount
+permalink: /:title/
+url: http://github.thinkingbar.com
+#highlighter: pygments
+highlighter: rouge
+gems: [jekyll-paginate]
+paginate: 100
+paginate_path: "page:num"
+name: 飘过的小牛
+description: 飘过的小牛 | Stop talking, start doing.
+author: niushuai
+email: hnns1990@gmail.com
+duoshuo: niushuai
+weibo: 1891858481
+hub: niushuai
+safe: false
+about: "弱菜一枚。"
