@@ -148,7 +148,7 @@ lunch aosp_angler-userdebug
 $ make -j8
 ```
 
-* 遇到的问题
+遇到的问题:
 ```
 [ 45% 16125/35623] Building with Jack: out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/with-local/classes.dex
 FAILED: /bin/bash out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/with-local/classes.dex.rsp
@@ -172,11 +172,10 @@ export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -X
 
 ### 五、烧写到手机上（nexus6p）
 - 1.其实根据[这里](https://source.android.com/source/building.html#choose-a-target)的最开始和[这里](https://source.android.com/source/requirements.html#binaries)的最后,编译出来的并不是完整的可以用的包。其中有些二进制文件还需要从谷歌官网下载。
+
 ```
 Device binaries
-
 Download previews, factory images, drivers, over-the-air (OTA) updates, and other blobs below. See Obtaining proprietary binaries for additional details.
-
 Preview binaries (blobs) - for AOSP master branch development
 Factory images - for the supported devices running tagged AOSP release branches
 Binary hardware support files - for devices running tagged AOSP release branches
@@ -186,6 +185,7 @@ OTA images - for manually updating Nexus devices over the air
 其中[Binary hardware support files](https://developers.google.com/android/drivers)就是Vendor image。版本不对会在开机的时候弹出一个警告。这里建议在烧写自己编译的文件前提下，先刷一个相同版本的原生底包进去。地址在[这里](https://developers.google.com/android/images).
 
 - 2.回归正传，烧写编译好的软件其实只需要几个命令。
+
 ```
 $ adb reboot bootloader　#进入fastboot
 $ cd /media/runylin/HDD/Andoid/AOSP/out/target/product/angler #进入类似的编译完的目录
@@ -195,6 +195,7 @@ $ fastboot flashall -w　＃等于刷进boot.img cache.img recovery.img system.i
 
 - 3.其实这样就和我们下一个image-angler-mmb29p.zip包，然后用./flash-all.sh烧写“ROM”差不多的。
 ./flash-all.sh文件内容：
+
 ```
 fastboot flash bootloader bootloader-angler-angler-02.45.img
 fastboot reboot-bootloader
