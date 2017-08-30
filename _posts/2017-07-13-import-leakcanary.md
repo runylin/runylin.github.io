@@ -1,10 +1,11 @@
 ---
 layout: post
-title: Androi应用源码编译时导入leakcanary
+title: Android应用源码编译时导入leakcanary
 categories:
 - Android
 tags:
-- 安卓应用 招式
+- 安卓应用 
+- 招式
 ---
 
 ### 零、前言
@@ -57,8 +58,9 @@ index 70c1b7a..88574c5 100755
 jar,aar包从as下完后拷贝出来放到libs目录。
 
 ### 二、遇到的问题
-1.android:minSdkVersion没定义
-* 报错信息：
+- 1.android:minSdkVersion没定义
+
+**报错信息：**
 ```
 make: Entering directory `/disk2/linrunyu/code/hisi51_tmp/Android'
 # Make sure the extracted classes.jar has a new timestamp.
@@ -70,9 +72,9 @@ Note: main manifest lacks a <uses-sdk android:targetSdkVersion> declaration, whi
 make: *** [out/target/common/obj/APPS/Browser_intermediates/AndroidManifest.xml] Error 1
 make: *** Deleting file `out/target/common/obj/APPS/Browser_intermediates/AndroidManifest.xml'
 make: Leaving directory `/disk2/linrunyu/code/hisi51_tmp/Android'
-
 ```
-* 解决办法
+
+**解决办法：**
 ```
 linrunyu@RD32(trunk5_1):~/code/hisi51_tmp/Android/packages/apps/Browser$git diff AndroidManifest.xml
 diff --git a/packages/apps/Browser/AndroidManifest.xml b/packages/apps/Browser/AndroidManifest.xml
@@ -88,8 +90,10 @@ index 4340300..1ce2b98 100755
          android:label="@string/permission_preload_label"
          android:protectionLevel="signatureOrSystem" />
 ```
-2.导入leakcanary-android-1.5.1.aar的AndroidManifest.xml有问题
-* 报错信息
+
+- 2.导入leakcanary-android-1.5.1.aar的AndroidManifest.xml有问题
+
+**报错信息：**
 ```
 Warning: AndroidManifest.xml already defines minSdkVersion (in http://schemas.android.com/apk/res/android); using existing value in manifest.
 out/target/common/obj/APPS/Browser_intermediates/AndroidManifest.xml:219: Tag <activity> attribute taskAffinity has invalid character '$'.
@@ -97,18 +101,22 @@ out/target/common/obj/APPS/Browser_intermediates/AndroidManifest.xml:226: Tag <a
 make: *** [out/target/common/obj/APPS/Browser_intermediates/src/R.stamp] Error 1
 make: Leaving directory `/disk2/linrunyu/code/hisi51_tmp/Android'
 ```
-* [分析](http://www.cnblogs.com/shortboy/p/5241643.html)
+
+[**分析：**](http://www.cnblogs.com/shortboy/p/5241643.html)
 ```
 因为是从AS,gradle下下来的leakcanary-android-1.5.1.aar。google发现${applicationId}写法是读build.gradle的applicationId替换进去。而Android.mk并不支持这种写法。
 ```
-* 解决办法
+
+**解决办法：**
 ```
 ${applicationId}直接替换成你的apk名字
 leakcanary-android-1.5.1.aar重名名leakcanary-android-1.5.1.zip
 改完再重命名回来
 ```
-3.混淆
-* 报错信息
+
+- 3.混淆
+
+**报错信息：**
 ```
 Reading library jar [/disk2/linrunyu/code/hisi51_tmp/Android/out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/classes.jar]
 Warning: com.squareup.haha.guava.collect.AbstractMapBasedMultimap: can't find referenced class com.squareup.haha.guava.collect.AbstractMapBasedMultimap$com.squareup.haha.guava.collect.AbstractMapBasedMultimap$WrappedCollection
@@ -122,7 +130,8 @@ Warning: com.squareup.haha.guava.collect.AbstractMapBasedMultimap$WrappedCollect
 Warning: com.squareup.haha.guava.collect.AbstractMapBasedMultimap$WrappedCollection: can't find referenced class com.squareup.haha.guava.collect.AbstractMapBasedMultimap$com.squareup.haha.guava.collect.AbstractMapBasedMultimap$WrappedCollection
 Warning: com.squareup.haha.guava.collect.AbstractMapBasedMultimap$WrappedCollection: can't find referenced class com.squareup.haha.guava.collect.AbstractMapBasedMultimap$com.squareup.haha.guava.collect.AbstractMapBasedMultimap$WrappedCollection
 ```
-* 解决办法：
+
+**解决办法：**
 ```
 linrunyu@RD32(trunk5_1):~/code/hisi51_tmp/Android/packages/apps/Browser$git diff proguard.flags
 diff --git a/packages/apps/Browser/proguard.flags b/packages/apps/Browser/proguard.flags
@@ -136,8 +145,10 @@ index 888c238..70d04e0 100755
 +-dontwarn com.squareup.**
 +-keep class com.squareup.** {*;}
 ```
+
 ### 三、使用
 修改继承Application的类以及需要检测内存泄露的Activity的onDestroy函数。
+
 ```
 //https://github.com/square/leakcanary
 //http://www.jianshu.com/p/a8900eb3de12
@@ -204,6 +215,7 @@ index 612370d..abd108a 100755
      @Override
 linrunyu@RD32(trunk5_1):~/code/hisi51_tmp/Android/packages/apps/Browser$
 ```
+
 ### 四、查看报错问题
 当退出这个activity的时候，如果出现一个黄色的小图标，说明有内存泄露。并会在桌面生成一个Leaks的入口。点击可以查看信息。
 ![](http://7xt9nx.com2.z0.glb.clouddn.com/Browser-oom.png)
