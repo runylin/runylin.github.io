@@ -1,8 +1,10 @@
 ---
 layout: post
 title: 利用Jekyll+GitHub Page搭建博客
-categories: tools
-tags: tools
+categories:
+- Tools
+tags:
+- 招式
 ---
 
 
