@@ -23,8 +23,7 @@ AOSP全称是Android Open Source Project，是Google的一个开源项目。其�
 
 提取下个人需要用的步骤如下：
 
-
-* １．Installing Repo
+- 1.Installing Repo
 ```
 $ mkdir ~/bin
 $ PATH=~/bin:$PATH
@@ -33,7 +32,7 @@ $ chmod a+x ~/bin/repo
 //谷歌的地址　https://storage.googleapis.com/git-repo-downloads/repo
 ```
 
-* ２．Initializing a Repo client
+- 2.Initializing a Repo client
 ```
 $ mkdir WORKING_DIRECTORY
 $ cd WORKING_DIRECTORY
@@ -48,18 +47,19 @@ $ repo init -u https://aosp.tuna.tsinghua.edu.cn/platform/manifest
 repo init -u https://aosp.tuna.tsinghua.edu.cn/platform/manifest -b android-7.1.1_r24
 ```
 
-* ３．Downloading the Android Source Tree
+- 3.Downloading the Android Source Tree
 ```
 $ repo sync
 ```
 **注意：**　*清华大学的源的使用说明限制最多４线程*
 
-* ４．DOEN
+- 4.DOEN
 ```
 $ cd WORKING_DIRECTORY
 $ ls 就能看到代码了
 $ 然后 repo start android-7.1.1_r24 --all 
 ```
+
 ### 三、 编译环境
 [Android官网](https://source.android.com/source/initializing.html)已经有介绍。本来这个应该在下载代码前介绍的，但是有代码才能实践编译嘛,也可以一边编译一边解报错的问题。所以放这里了。
 
@@ -69,20 +69,20 @@ $ 然后 repo start android-7.1.1_r24 --all
 2.At least 100GB of free disk space for a checkout, 150GB for a single build, and 200GB or more for multiple builds. If you employ ccache, you will need even more space.
 3.If you are running Linux in a virtual machine, you need at least 16GB of RAM/swap.
 ```
+
 * 操作系统
 ```
 1.GNU/Linux
 Android 6.0 (Marshmallow) - AOSP master: Ubuntu 14.04 (Trusty)
 Android 2.3.x (Gingerbread) - Android 5.x (Lollipop): Ubuntu 12.04 (Precise)
 Android 1.5 (Cupcake) - Android 2.2.x (Froyo): Ubuntu 10.04 (Lucid)
-
 2.Mac OS (Intel/x86)
 Android 6.0 (Marshmallow) - AOSP master: Mac OS v10.10 (Yosemite) or later with Xcode 4.5.2 and Command Line Tools
 Android 5.x (Lollipop): Mac OS v10.8 (Mountain Lion) with Xcode 4.5.2 and Command Line Tools
 Android 4.1.x-4.3.x (Jelly Bean) - Android 4.4.x (KitKat): Mac OS v10.6 (Snow Leopard) or Mac OS X v10.7 (Lion) and Xcode 4.2 (Apple's Developer Tools)
 Android 1.5 (Cupcake) - Android 4.0.x (Ice Cream Sandwich): Mac OS v10.5 (Leopard) or Mac OS X v10.6 (Snow Leopard) and the Mac OS X v10.5 SDK
-
 ```
+
 * JDK
 ```
 1.The master branch of Android in AOSP: Ubuntu - OpenJDK 8, Mac OS - jdk 8u45 or newer
@@ -90,6 +90,7 @@ Android 1.5 (Cupcake) - Android 4.0.x (Ice Cream Sandwich): Mac OS v10.5 (Leopar
 3.Android 2.3.x (Gingerbread) - Android 4.4.x (KitKat): Ubuntu - Java JDK 6, Mac OS - Java JDK 6
 4.Android 1.5 (Cupcake) - Android 2.2.x (Froyo): Ubuntu - Java JDK 5
 ```
+
 * Key packages
 ```
 1.Python 2.6 -- 2.7 from python.org
@@ -103,7 +104,9 @@ $ sudo apt-add-repository ppa:openjdk-r/ppa
 $ sudo apt-get update 
 $ sudo apt-get install openjdk-8-jdk
 ```
+
 如果有安装多个java版本的，可以通过下面查看和修改要使用的java版本 
+
 ```
 $ java -version
 $ sudo update-alternatives –config java
@@ -125,22 +128,22 @@ export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 ### 四、开始编译
 最好的资料还是[Android官网](https://source.android.com/source/downloading.html)。
 
-* 1.Clean up
+- 1.Clean up
 ```
 $ make clobber
 ```
-* 2.Set up environment
+- 2.Set up environment
 ```
 $ source build/envsetup.sh
 ```
-* 3.Choose a target
+- 3.Choose a target
 ```
 lunch aosp_angler-userdebug
 ```
 选择一个target，因为有nexus6p真机，所以选的是17.aosp-angler-userdebug
 ，如果没有可以选择aosp-arm-eng.然后用模拟器。**注意：userdebug和eng才有root权限。**
 
-* 4.Build the code
+- 4.Build the code
 ```
 $ make -j8
 ```
@@ -158,7 +161,9 @@ ninja: build stopped: subcommand failed.
 build/core/ninja.mk:148: recipe for target 'ninja_wrapper' failed
 make: *** [ninja_wrapper] Error 1
 ```
+
 [解决办法](http://stackoverflow.com/questions/35579646/android-source-code-compile-error-try-increasing-heap-size-with-java-option):
+
 ```
 export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4g"
 ./prebuilts/sdk/tools/jack-admin kill-server
@@ -166,7 +171,7 @@ export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -X
 ```
 
 ### 五、烧写到手机上（nexus6p）
-１．其实根据[这里](https://source.android.com/source/building.html#choose-a-target)的最开始和[这里](https://source.android.com/source/requirements.html#binaries)的最后,编译出来的并不是完整的可以用的包。其中有些二进制文件还需要从谷歌官网下载。
+- 1.其实根据[这里](https://source.android.com/source/building.html#choose-a-target)的最开始和[这里](https://source.android.com/source/requirements.html#binaries)的最后,编译出来的并不是完整的可以用的包。其中有些二进制文件还需要从谷歌官网下载。
 ```
 Device binaries
 
@@ -180,7 +185,7 @@ OTA images - for manually updating Nexus devices over the air
 
 其中[Binary hardware support files](https://developers.google.com/android/drivers)就是Vendor image。版本不对会在开机的时候弹出一个警告。这里建议在烧写自己编译的文件前提下，先刷一个相同版本的原生底包进去。地址在[这里](https://developers.google.com/android/images).
 
-２．回归正传，烧写编译好的软件其实只需要几个命令。
+- 2.回归正传，烧写编译好的软件其实只需要几个命令。
 ```
 $ adb reboot bootloader　#进入fastboot
 $ cd /media/runylin/HDD/Andoid/AOSP/out/target/product/angler #进入类似的编译完的目录
@@ -188,7 +193,7 @@ $ fastboot flashall -w　＃等于刷进boot.img cache.img recovery.img system.i
 ```
 
 
-3．其实这样就和我们下一个image-angler-mmb29p.zip包，然后用./flash-all.sh烧写“ROM”差不多的。
+- 3.其实这样就和我们下一个image-angler-mmb29p.zip包，然后用./flash-all.sh烧写“ROM”差不多的。
 ./flash-all.sh文件内容：
 ```
 fastboot flash bootloader bootloader-angler-angler-02.45.img
