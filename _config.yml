@@ -1,6 +1,6 @@
 #markdown: rdiscount
 permalink: /:title/
-url: http://github.runylin.com
+url: http://github.runylin.io
 #highlighter: pygments
 highlighter: rouge
 gems: [jekyll-paginate]
