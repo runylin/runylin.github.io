@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 系统签名的安卓应用在AS的调试
+title: 系统签名的Android应用在AS的调试
 categories:
 - Android
 tags:
