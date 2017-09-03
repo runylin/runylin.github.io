@@ -42,7 +42,7 @@ C:\Users\user\.gradle\wrapper\dists\gradle-2.4-all\6r4uqcc6ovnq6ac6s0txzcpc0a
 
 ### 四、快捷键
 用一款IDE顺不顺手首先就是熟不熟悉他的快捷键了，熟悉后明显能提高生产力。
-- 查看代码时，和工程结构或者跳转相关
+#### 查看代码时，和工程结构或者跳转相关
 
 | 快捷键                        | 说明         |
 | :--------                        | :--------      | 
@@ -57,13 +57,13 @@ C:\Users\user\.gradle\wrapper\dists\gradle-2.4-all\6r4uqcc6ovnq6ac6s0txzcpc0a
 |ALT + F7	               |在工程中找出引用了所选内容的所有位置|
 |Ctrl + Alt + B 	               |导航到一个抽象方法的实现代码|
 
-- 并照之前习惯加了下面的快捷键 :
+#### 并照之前习惯加了下面的快捷键 :
 
 | 快捷键                        | 说明           |
 | :--------                        | :--------        | 
 |Alt+逗号 / Alt+句号	     |移动到上一个/下一个光标位置|
 
-- 编写代码时，和代码提示/补全相关
+#### 编写代码时，和代码提示/补全相关
 
 | 快捷键                        | 说明           |
 | :--------                        | :--------        | 
@@ -81,7 +81,7 @@ C:\Users\user\.gradle\wrapper\dists\gradle-2.4-all\6r4uqcc6ovnq6ac6s0txzcpc0a
 |Alt + J	                     | 多行操作  |
 
 ### 五、遇到的问题备注
-1. 修改包名
+#### 修改包名
 在Android Studio默认情况下， 修改包名只能修改最后一级。要修改可以在Project工具栏勾掉Compact Empty Middle。然后Refactor->Rename 即可。
 
 ### others
