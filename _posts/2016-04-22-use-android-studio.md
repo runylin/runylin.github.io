@@ -1,46 +1,46 @@
 ---
 layout: post
-title: "Use Android Studio"
+title: "Android开发环境AS"
 categories:
 - Tools 
 tags:
 - 招式
 ---
-
----
-
 ![](http://upload-images.jianshu.io/upload_images/1236985-d168dc3aea0be8fc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-##一、墙内安装SDK
-  给这个网站 [Androiddevtools](http://www.androiddevtools.cn/index.html) 强烈点个赞 ;
 
-- 方法1: 下载解压完放到*__your_sdk/platforms__* 文件夹即可 ;
-- 方法2: 镜像, [具体方法](http://android-mirror.bugly.qq.com:8080/include/usage.html) ;
+### 一、墙内安装SDK
+给这个网站 [Androiddevtools](http://www.androiddevtools.cn/index.html) 强烈点个赞 ;
+
+#### 方法1: 下载解压完放到*__your_sdk/platforms__* 文件夹即可 ;
+#### 方法2: 镜像, [具体方法](http://android-mirror.bugly.qq.com:8080/include/usage.html) ;
 
 即使按照上面这样设置了，在导入新的工程文件可能会出现一直卡在Building XXX Gradle project info的情况。这是有两种解决方法：
 
-- 方法1: 网上下载包（比如gradle-2.4-all.zip）放到
+#### 方法1: 网上下载包（比如gradle-2.4-all.zip）放到
+
 ```
 C:\Users\user\.gradle\wrapper\dists\gradle-2.4-all\6r4uqcc6ovnq6ac6s0txzcpc0a 
 ```
-- 方法2: 电脑已翻墙的话，在项目中的gradle.propertities文件中加入下面两行:
-    ```
+
+#### 方法2: 电脑已翻墙的话，在项目中的gradle.propertities文件中加入下面两行:
+```
     systemProp.https.proxyHost=127.0.0.1
     systemProp.https.proxyPort=8123 
-   ```
+```
 
 
-##二、解决工具栏字符显示不全
+### 二、解决工具栏字符显示不全
 ![](http://upload-images.jianshu.io/upload_images/1236985-b2ea3ad4629aecfa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 上图方法可以解决，但最终原因发现是装了MacType字体渲染导致。
 
-##三、代码框配色
+### 三、代码框配色
 1. 第三方主题下载 [链接](http://www.ideacolorthemes.org/home/) ; 
 2. 选择菜单栏*__"File-Import Settings"__* 导入下载完解压出来的jar包，重启AS;
 3. 再在*__"File--settings--Editor--Colors&Fonts"__*就可以看到导入的新主题了;
 
-我用的是这个 [SublimeMonokai](https://github.com/y3sh/Intellij-Colors-Sublime-Monokai) ，文字配置用的 Courier New 16 1.0。  
+我用的是这个 [SublimeMonokai](https://github.com/y3sh/Intellij-Colors-Sublime-Monokai) ，文字配置用的 Courier New 16 1.0。
 
-##四、快捷键
+### 四、快捷键
 用一款IDE顺不顺手首先就是熟不熟悉他的快捷键了，熟悉后明显能提高生产力。
 - 查看代码时，和工程结构或者跳转相关
 
@@ -80,12 +80,11 @@ C:\Users\user\.gradle\wrapper\dists\gradle-2.4-all\6r4uqcc6ovnq6ac6s0txzcpc0a
 |CTRL (+ SHIFT) + /     |  添加注释  |
 |Alt + J	                     | 多行操作  |
 
-##五、遇到的问题备注
+### 五、遇到的问题备注
 1. 修改包名
 在Android Studio默认情况下， 修改包名只能修改最后一级。要修改可以在Project工具栏勾掉Compact Empty Middle。然后Refactor->Rename 即可。
 
-## others
+### others
 [android官网教程](https://developer.android.com/training/index.html)
 <br>
-
 
