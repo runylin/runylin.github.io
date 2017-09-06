@@ -53,6 +53,7 @@ include $(BUILD_JAVA_LIBRARY)
 **notices**
 - 如果是在编译整个android的源码，这个LOCAL_MODULE需要添加到了PRODUCT_PACKAGES和PRODUCT_BOOT_JARS 变量里
 - 如果需要系统为应用自动加载动态库，需要在/system/etc/permissions中添加<library>条目。
+
 ```
 1、add build/target/product/linxtu_base.mk in build/target/product/core_minimal.mk\
 +PRODUCT_PACKAGES += \
@@ -75,6 +76,7 @@ include $(BUILD_JAVA_LIBRARY)
 ```
 
 这样编译完在out/target/product/XXX/system/framework下就会生成HitvShare.jar，这个是生成机器的字节码，运行时用;
+
 在out/target/common/obj/JAVA_LIBRARIES/HitvShare_intermediates会有一个classes.jar，这个里面有class文件，可以拷贝出来，在apk中依赖用。
 
 ### 二、APK依赖这个jar包
