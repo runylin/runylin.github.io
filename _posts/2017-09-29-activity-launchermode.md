@@ -4,7 +4,7 @@ title: "Activity的启动模式"
 categories:
 - Android
 tags:
-- 安卓应用 温故知新
+- 安卓应用,温故知新
 ---
 
 我们知道，android与用户最直接的就是界面了，而与界面跳转联系比较紧密的概念是Task（任务）和Back Stack（回退栈）。activity的启动模式会影响Task和Back Stack的状态，Intent类中定义的一些标志（以FLAG_ACTIVITY_开头）和activity的属性taskAffinity也影响Task和Back Stack的状态。也是这篇的内容，因为在这个问题上遇到过坑。
