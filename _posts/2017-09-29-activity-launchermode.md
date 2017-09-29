@@ -88,3 +88,4 @@ ACTIVITY MANAGER RECENT TASKS (dumpsys activity recents)
 ### 四、参考文档
 http://blog.csdn.net/jijiaxin1989/article/details/42242393
 
+
