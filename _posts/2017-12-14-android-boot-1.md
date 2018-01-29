@@ -51,7 +51,7 @@ BootLoader可以分为两个阶段。第一个阶段使用汇编来实现，它�
 ```
 可以看到这段代码最终生成的是fastboot-burn-emmc.bin文件
 
-具体uboot代码解析，之前在学校有帮师兄修修补补过一本书，叫《ARM Cortex-A8实战演练》。在P175页开始有介绍uboot。**公众号回复uboot，可以获取这本书pdf版下载链接**
+具体uboot代码解析，之前在学校有帮师兄修修补补过一本书，叫《ARM Cortex-A8实战演练》。在P175页开始有介绍uboot。[链接](https://pan.baidu.com/s/1geDosUn) 密码：50e1
 
 #### 1.3 fastboot
 fastBoot是bootloader提供的一个功能。可以通过数据线与电脑连接，然后在电脑上执行一些命令，如刷系统镜像到手机上。fastboot可以理解为实现了一个简单的通信协议，接收命令并更新镜像文件，其他什么的干不了。
