@@ -13,15 +13,11 @@ tags:
 ### 一、定义启动模式
 按照官方文档说明如下，具体见[链接](https://developer.android.com/guide/components/tasks-and-back-stack.html?hl=zh-cn#ActivityState)：
 
-定义启动模式
 启动模式允许您定义 Activity 的新实例如何与当前任务关联。 您可以通过两种方法定义不同的启动模式：
-
 - 1.使用清单文件：
 在清单文件中声明 Activity 时，您可以指定 Activity 在启动时应该如何与任务关联。
-
 - 2.使用 Intent 标志：
 调用 startActivity() 时，可以在 Intent 中加入一个标志，用于声明新 Activity 如何（或是否）与当前任务关联。
-
 - 因此，如果 Activity A 启动 Activity B，则 Activity B 可以在其清单文件中定义它应该如何与当前任务关联（如果可能），并且 Activity A 还可以请求 Activity B 应该如何与当前任务关联。如果这两个 Activity 均定义 Activity B 应该如何与任务关联，则 Activity A 的请求（如 Intent 中所定义）优先级要高于 Activity B 的请求（如其清单文件中所定义）。
 
 注：某些适用于清单文件的启动模式不可用作 Intent 标志，
