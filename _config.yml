@@ -6,8 +6,8 @@ highlighter: rouge
 gems: [jekyll-paginate]
 paginate: 100
 paginate_path: "page:num"
-name: 林X土实验室
-description: 林X土实验室 | Keep Moving.
+name: Blog | 林X土
+description: 林X土的博客 | Keep Moving.
 author: runylin
 email: runylin@gmail.com
 duoshuo: runylin
