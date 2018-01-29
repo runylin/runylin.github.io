@@ -13,14 +13,13 @@ tags:
 ### 一、定义启动模式
 按照官方文档说明如下，具体见[链接](https://developer.android.com/guide/components/tasks-and-back-stack.html?hl=zh-cn#ActivityState)：
 
-
 定义启动模式
 启动模式允许您定义 Activity 的新实例如何与当前任务关联。 您可以通过两种方法定义不同的启动模式：
 
-- 1、使用清单文件：
+- 1.使用清单文件：
 在清单文件中声明 Activity 时，您可以指定 Activity 在启动时应该如何与任务关联。
 
-- 2、使用 Intent 标志：
+- 2.使用 Intent 标志：
 调用 startActivity() 时，可以在 Intent 中加入一个标志，用于声明新 Activity 如何（或是否）与当前任务关联。
 
 - 因此，如果 Activity A 启动 Activity B，则 Activity B 可以在其清单文件中定义它应该如何与当前任务关联（如果可能），并且 Activity A 还可以请求 Activity B 应该如何与当前任务关联。如果这两个 Activity 均定义 Activity B 应该如何与任务关联，则 Activity A 的请求（如 Intent 中所定义）优先级要高于 Activity B 的请求（如其清单文件中所定义）。
@@ -28,7 +27,7 @@ tags:
 注：某些适用于清单文件的启动模式不可用作 Intent 标志，
 同样，某些可用作 Intent 标志的启动模式无法在清单文件中定义。
 
-上面官方文档说明代码实现的Intent属性优先级要高，比如launchMode为singleTop，Intent属性为FLAG_ACTIVITY_NEW_TASK，会以后者为准。
+上面官方文档说明代码实现的Intent属性优先级要高，比如launchMode为singleTop，Intent属性为FLAG_ACTIVITY_NEW_TASK，会以后者为准 。
 
 #### 二、使用清单文件
 [官方文档链接](https://developer.android.com/guide/topics/manifest/activity-element.html?hl=zh-cn)
@@ -42,12 +41,11 @@ tags:
 专用启动（不建议用作常规用途）| “singleTask” | 否 | 系统在新任务的根位置创建 Activity 并向其传送 Intent。 不过，如果已存在一个 Activity 实例，则系统会通过调用该实例的 onNewIntent() 方法向其传送 Intent，而不是创建新的 Activity 实例。
 专用启动（不建议用作常规用途）| “singleInstance” | 否 | 与“singleTask"”相同，只是系统不会将任何其他 Activity 启动到包含实例的任务中。 该 Activity 始终是其任务唯一仅有的成员。
 
-
 注：除了singleTask外，其他三个比较容易理解，写了demo测试也和想象一样。singleTask实验后发现如下：
 
-*一个Activity的Launch Mode为singleTask时，在新建这个Activity时，默认taskAffinity情况下，一般不会新建task，taskAffinity属性默认application中是相同的，那么就会新建在当前栈。如果这个Activity已经在某个task的stack中了，此时只会调用它的onNewIntent()，而不会调用onCreate()。(谷歌的官方文档上称，如果一个activity的启动模式为singleTask，那么系统总会在一个新任务的最底部（root）启动这个activity，并且被这个activity启动的其他activity会和该activity同时存在于这个新任务中。如果系统中已经存在这样的一个activity则会重用这个实例，并且调用他的onNewIntent()方法。即，这样的一个activity在系统中只会存在一个实例。这种说法是不准确的，或者翻译的隔阂，已验证不是总会在栈底启动singletask的activity，已打印验证int taskId = getTaskId())其实，把启动模式设置为singleTask，framework在启动该activity时只会把它标示为可在一个新任务中启动，至于是否在一个新任务中启动，还要受其他条件的限制。增加一个taskAffinity属性给启动的singleTask的aty，那么将在新task启动。*
+一个Activity的Launch Mode为singleTask时，在新建这个Activity时，默认taskAffinity情况下，一般不会新建task，taskAffinity属性默认application中是相同的，那么就会新建在当前栈。如果这个Activity已经在某个task的stack中了，此时只会调用它的onNewIntent()，而不会调用onCreate()。(谷歌的官方文档上称，如果一个activity的启动模式为singleTask，那么系统总会在一个新任务的最底部（root）启动这个activity，并且被这个activity启动的其他activity会和该activity同时存在于这个新任务中。如果系统中已经存在这样的一个activity则会重用这个实例，并且调用他的onNewIntent()方法。即，这样的一个activity在系统中只会存在一个实例。这种说法是不准确的，或者翻译的隔阂，已验证不是总会在栈底启动singletask的activity，已打印验证int taskId = getTaskId())其实，把启动模式设置为singleTask，framework在启动该activity时只会把它标示为可在一个新任务中启动，至于是否在一个新任务中启动，还要受其他条件的限制。增加一个taskAffinity属性给启动的singleTask的aty，那么将在新task启动。
 
-*Android Framework既能在同一个任务中对Activity进行调度，也能以Task为单位进行整体调度。在启动模式为standard或singleTop时，一般是在同一个任务中对Activity进行调度，而在启动模式为singleTask或singleInstance是，一般会对Task进行整体调度。*
+Android Framework既能在同一个任务中对Activity进行调度，也能以Task为单位进行整体调度。在启动模式为standard或singleTop时，一般是在同一个任务中对Activity进行调度，而在启动模式为singleTask或singleInstance是，一般会对Task进行整体调度。
 
 ### 三、使用 Intent 标志
 [官方文档链接](https://developer.android.com/guide/components/tasks-and-back-stack.html?hl=zh-cn)
@@ -64,9 +62,10 @@ tags:
 
 ### 三、之前遇到过的一个问题分析
 ### 3.1 看这个例子：
-    待补充
+待补充
+
 ### 3.2 查看任务栈
-dumpsys activity 的 ACTIVITY MANAGER RECENT TASKS 条目下：
+dumpsys activity 的 ACTIVITY MANAGER RECENT TASKS 条目下:
 
 ```
 ACTIVITY MANAGER RECENT TASKS (dumpsys activity recents)
@@ -83,7 +82,6 @@ ACTIVITY MANAGER RECENT TASKS (dumpsys activity recents)
   * Recent #9: TaskRecord{c3f3cf4 #3684 A=com.android.quicksearchbox U=0 StackId=1 sz=1}
   * Recent #10: TaskRecord{4377c1d #3650 A=android.task.stk.StkLauncherActivity U=0 StackId=-1 sz=0}
   * Recent #11: TaskRecord{edede92 #0 I=com.android.settings/.FallbackHome U=0 StackId=-1 sz=0}
-
 ```
 
 ### 四、参考文档
